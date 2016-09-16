@@ -28,23 +28,22 @@
         </ul>
       </header>
       <section>
-        <p><a href="https://travis-ci.org/criteo/biggraphite"><img src="https://travis-ci.org/criteo/biggraphite.svg?branch=master" alt="Build Status"></a>
-<a href="https://coveralls.io/github/criteo/biggraphite?branch=master"><img src="https://coveralls.io/repos/github/criteo/biggraphite/badge.svg?branch=initialimport" alt="Coverage Status"></a>
-<a href="https://gemnasium.com/github.com/criteo/biggraphite"><img src="https://gemnasium.com/badges/github.com/criteo/biggraphite.svg" alt="Dependency Status"></a>
-<a href="https://gitter.im/criteo/biggraphite?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/criteo/biggraphite.svg" alt="Join the chat at https://gitter.im/criteo/biggraphite"></a></p>
+<p><strong>THIS SOFTWARE IS NOT READY FOR PRODUCTION USE AND IS PROVIDED AS-IS</strong></p>
+
+<p><a href="https://travis-ci.org/criteo/biggraphite"><img src="https://camo.githubusercontent.com/dd202ec479cb9a36aca04afb6ef5cc441fd5fcb6/68747470733a2f2f7472617669732d63692e6f72672f63726974656f2f62696767726170686974652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/criteo/biggraphite.svg?branch=master" style="max-width:100%;"></a>
+<a href="https://coveralls.io/github/criteo/biggraphite?branch=master"><img src="https://camo.githubusercontent.com/98ad395ea0edc9913580dd1a582ea58a264703ed/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f63726974656f2f62696767726170686974652f62616467652e7376673f6272616e63683d696e697469616c696d706f7274" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/github/criteo/biggraphite/badge.svg?branch=initialimport" style="max-width:100%;"></a>
+<a href="https://gemnasium.com/github.com/criteo/biggraphite"><img src="https://camo.githubusercontent.com/fdef80f366cffdf7c3527f4463cd2e2baccf0b27/68747470733a2f2f67656d6e617369756d2e636f6d2f6261646765732f6769746875622e636f6d2f63726974656f2f62696767726170686974652e737667" alt="Dependency Status" data-canonical-src="https://gemnasium.com/badges/github.com/criteo/biggraphite.svg" style="max-width:100%;"></a>
+<a href="https://gitter.im/criteo/biggraphite?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://camo.githubusercontent.com/5525d563592c6121796f6f7178749e5344ecf79f/68747470733a2f2f6261646765732e6769747465722e696d2f63726974656f2f62696767726170686974652e737667" alt="Join the chat at https://gitter.im/criteo/biggraphite" data-canonical-src="https://badges.gitter.im/criteo/biggraphite.svg" style="max-width:100%;"></a></p>
 
 <h1>
-<a id="big-graphite" class="anchor" href="#big-graphite" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Big Graphite</h1>
+<a id="user-content-big-graphite" class="anchor" href="#big-graphite" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Big Graphite</h1>
 
-<p>BigGraphite is a storage layer for timeseries data. It integrates as a plugin to Graphite.
-<strong>This document describes general principles</strong>, for a description of usage see <a href="USAGE.md">USAGE.md</a>.</p>
+<p>BigGraphite is a storage layer for timeseries data. It integrates with Graphite as a plugin.</p>
 
-<p><strong>None of it is ready for its premiere yet.</strong></p>
-
-<p>To contribute, see <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+<p>For usage information and how to contribute, please see <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
 
 <h1>
-<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h1>
+<a id="user-content-contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h1>
 
 <ul>
 <li><a href="https://gitter.im/criteo/biggraphite">Gitter</a></li>
@@ -52,19 +51,19 @@
 </ul>
 
 <h1>
-<a id="backends" class="anchor" href="#backends" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Backends</h1>
+<a id="user-content-backends" class="anchor" href="#backends" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Backends</h1>
 
 <p>There is only one supported backend for now: Cassandra, whose design is <a href="CASSANDRA_DESIGN.md">described in CASSANDRA_DESIGN.md</a>.</p>
 
 <h1>
-<a id="code-structure" class="anchor" href="#code-structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code structure</h1>
+<a id="user-content-code-structure" class="anchor" href="#code-structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code structure</h1>
 
 <ul>
 <li>
 <code>biggraphite.accessor</code> exposes the public API to store/retrieve metrics</li>
 <li>
-<code>biggraphite.metadata_cache</code> implements a machine-local cache using <a href="https://lmdb.readthedocs.io">LMDB</a>
-so that one does not need a round-trip for each call to <code>accessor</code>.</li>
+<code>biggraphite.metadata_cache</code> implements a machine-local cache using <a href="https://lmdb.readthedocs.io">LMDB</a> so that one does not need a round-trip for each call to <code>accessor</code>
+</li>
 <li>
 <code>biggraphite.plugins.*</code> implements integration with Carbon and Graphite</li>
 <li>
